@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: d7158d8becec45b9ab424f32de69e108
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - mind: {fileID: 11400000, guid: 98f525b2c2195bb40be697efa5f08ece, type: 2}
+  - lookupTable: {instanceID: 0}
+  - selectedCamera: {instanceID: 0}
+  - cleanerAgentPrefab: {fileID: 5829531856079109815, guid: cff9a72f1eaaf4243837c2afdd1e5a3e, type: 3}
+  - materialCleanNormal: {fileID: 2100000, guid: aa8e8bd4571316249991441dcbaeac6b, type: 2}
+  - materialCleanLikelyToGetDirty: {instanceID: 0}
+  - materialDirty: {instanceID: 0}
+  - materialVeryDirty: {instanceID: 0}
+  - materialExtremelyDirty: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
