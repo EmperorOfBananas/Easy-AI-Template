@@ -50,7 +50,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8a214ef07764d35a10e171fa2154a14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: {fileID: 11400000, guid: 0dbbbbfc37da2304bbd48180d5f98c02, type: 2}
   moveSpeed: 10
   moveAcceleration: 10
   lookSpeed: 5
@@ -59,6 +58,7 @@ MonoBehaviour:
   eatAudio: {fileID: 8300000, guid: 1d3e1885790d34f468dd787e3a5a8123, type: 3}
   mateAudio: {fileID: 8300000, guid: 599f10e0b67f9344c8d69af464719da7, type: 3}
   pickupAudio: {fileID: 8300000, guid: 8e1a8521378e47c48bbf333a1df9f665, type: 3}
+  _targetMicrobe: {fileID: 0}
 --- !u!114 &8746273391784731232
 MonoBehaviour:
   m_ObjectHideFlags: 0

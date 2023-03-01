@@ -498,7 +498,7 @@ namespace EasyAI
         /// <param name="pos">The position.</param>
         /// <param name="behaviour">The move type.</param>
         public void Move(Vector2 pos, Steering.Behaviour behaviour = Steering.Behaviour.Seek)
-        {
+        {   
             Moves.Clear();
             AddMove(pos, behaviour);
         }

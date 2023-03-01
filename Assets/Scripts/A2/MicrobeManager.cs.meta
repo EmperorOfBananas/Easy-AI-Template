@@ -1,3 +1,31 @@
 fileFormatVersion: 2
 guid: 4f711a5754144b2f8e383ead329410d1
-timeCreated: 1645559365
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - mind: {fileID: 11400000, guid: 1c5677af39d17c748bb3dbf33fc8c7cb, type: 2}
+  - lookupTable: {instanceID: 0}
+  - selectedCamera: {instanceID: 0}
+  - microbePrefab: {instanceID: 0}
+  - spawnParticlesPrefab: {instanceID: 0}
+  - deathParticlesPrefab: {instanceID: 0}
+  - mateParticlesPrefab: {instanceID: 0}
+  - pickupParticlesPrefab: {instanceID: 0}
+  - floorMaterial: {instanceID: 0}
+  - redMicrobeMaterial: {fileID: 2100000, guid: 3a41b7aa03ddf024fbc0c1ea0563750d, type: 2}
+  - orangeMicrobeMaterial: {fileID: 2100000, guid: ad1517e1a84462742ad0a39a139022b3, type: 2}
+  - yellowMicrobeMaterial: {fileID: 2100000, guid: f3826008cfa519a4b8ee5a95a8c05e85, type: 2}
+  - greenMicrobeMaterial: {fileID: 2100000, guid: 80a1e3b18dd54524d9eba3b07b234aad, type: 2}
+  - blueMicrobeMaterial: {fileID: 2100000, guid: 67b0eeef50c9fcf4a971927cb01ed4d3, type: 2}
+  - purpleMicrobeMaterial: {fileID: 2100000, guid: 09b7a05b7bb69b44088d44ffc3144858, type: 2}
+  - pinkMicrobeMaterial: {fileID: 2100000, guid: eb1631404aa29ba428b259a60206de98, type: 2}
+  - sleepingIndicatorMaterial: {instanceID: 0}
+  - foodIndicatorMaterial: {instanceID: 0}
+  - mateIndicatorMaterial: {instanceID: 0}
+  - pickupIndicatorMaterial: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

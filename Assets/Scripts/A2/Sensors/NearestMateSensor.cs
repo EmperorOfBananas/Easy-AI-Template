@@ -2,6 +2,8 @@
 using A2.States;
 using EasyAI;
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace A2.Sensors
 {

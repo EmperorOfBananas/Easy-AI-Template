@@ -118,7 +118,7 @@ namespace EasyAI.Navigation
         private static Vector2 Flee(Vector2 position, Vector2 velocity, Vector2 pursuer, float speed)
         {
             // TODO - Assignment 3 - Complete the remaining steering behaviours and use them to improve the microbes level.
-            return Vector2.zero;
+            return ((pursuer - position).normalized * speed - velocity) * (-1); // flee is the opposite of seek, therefore we simply multiply seek()'s result by -1
         }
 
         /// <summary>
@@ -134,7 +134,9 @@ namespace EasyAI.Navigation
         private static Vector2 Pursue(Vector2 position, Vector2 velocity, Vector2 evader, Vector2 evaderLastPosition, float speed, float deltaTime)
         {
             // TODO - Assignment 3 - Complete the remaining steering behaviours and use them to improve the microbes level.
-            return Vector2.zero;
+            Vector2 evader_velocity = (evader - evaderLastPosition) / deltaTime; // calculate velocity of evader
+            double LookAheadTime = Vector2.Distance(position, evader) / (speed*2); // predict where the evader will be
+            return Seek(position, velocity, evader + evader_velocity * (float)LookAheadTime, speed); // seek towards the future position of the evader
         }
 
         /// <summary>
@@ -150,7 +152,7 @@ namespace EasyAI.Navigation
         private static Vector2 Evade(Vector2 position, Vector2 velocity, Vector2 pursuer, Vector2 pursuerLastPosition, float speed, float deltaTime)
         {
             // TODO - Assignment 3 - Complete the remaining steering behaviours and use them to improve the microbes level.
-            return Vector2.zero;
+            return Pursue(position, velocity, pursuer, pursuerLastPosition, speed, deltaTime).normalized * (-1); // same case as with flee
         }
     }
 }

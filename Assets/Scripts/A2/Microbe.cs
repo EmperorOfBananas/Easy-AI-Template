@@ -106,7 +106,7 @@ namespace A2
         /// <summary>
         /// The microbe that this microbe is moving towards to either eat or mate with.
         /// </summary>
-        private Microbe _targetMicrobe;
+        public Microbe _targetMicrobe;
 
         /// <summary>
         /// The type (color) of this microbe.
