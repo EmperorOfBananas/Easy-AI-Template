@@ -34,17 +34,23 @@ public class Idle : State
             }
             //Sagent.Navigate(s.EnemyFlagPosition);
         }*/
+        Debug.Log(agent.name + " is a " + s.Role);
         if(s.Role == Soldier.SoliderRole.Collector){
         
         }
         else if(s.Role == Soldier.SoliderRole.Attacker){
+            dir = agent.transform.position - s.EnemyFlagPosition;
+            dist = Mathf.RoundToInt(dir.magnitude);
             if(s.DetectedEnemies.Count > 0 && s.Health > 50){
                 Soldier.EnemyMemory target = s.DetectedEnemies.OrderBy(e => e.Visible).ThenBy(e => Vector3.Distance(agent.transform.position, e.Position)).First();
                 s.SetTarget(new(){Enemy = target.Enemy, Position = target.Position, Visible = target.Visible});
                 agent.SetState<Attack>();
             }
             else if(s.Health <= 50){agent.SetState<Heal>();}
-            if(s.Weapons[1].Ammo < s.Weapons[1].Ammo/2){agent.SetState<Ammo>();}   
+            else if(s.Weapons[1].Ammo < s.Weapons[1].Ammo/2){agent.SetState<Ammo>();}
+            else if(dist > 30){
+                agent.Navigate(s.EnemyFlagPosition);
+            }   
         }
         else if(s.Role == Soldier.SoliderRole.Defender){
 
