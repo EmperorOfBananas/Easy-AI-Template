@@ -21,6 +21,8 @@ public class Retrieve : State
             agent.SetState<Idle>();
         }  
     }
-    public override void Exit(Agent agent){Debug.Log("Retrieve Exited");}
+    public override void Exit(Agent agent){
+        agent.StopNavigating();
+        Debug.Log("Retrieve Exited");}
 }
 }

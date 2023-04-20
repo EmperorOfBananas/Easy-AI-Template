@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Project.Pickups;
 using UnityEngine;
-using UnityEngine.AI;
 using EasyAI;
 
 namespace Project.States{
@@ -48,14 +47,16 @@ public class Idle : State
             }
             else if(s.Health <= 50){agent.SetState<Heal>();}
             else if(s.Weapons[1].Ammo < s.Weapons[1].Ammo/2){agent.SetState<Ammo>();}
-            else if(dist > 30){
-                agent.Navigate(s.EnemyFlagPosition);
+            else{
+                agent.SetState<Explore>();
             }   
         }
         else if(s.Role == Soldier.SoliderRole.Defender){
 
         }
     }
-    public override void Exit(Agent agent){Debug.Log("Idle Exited");}
+    public override void Exit(Agent agent){
+        agent.StopNavigating();
+        Debug.Log("Idle Exited");}
 }
 }

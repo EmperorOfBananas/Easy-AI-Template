@@ -29,6 +29,8 @@ public class CaptureState : State
             agent.SetState<Idle>();
         }
     }
-    public override void Exit(Agent agent){Debug.Log("Capture Exited");}
+    public override void Exit(Agent agent){
+        agent.StopNavigating();
+        Debug.Log("Capture Exited");}
 }
 }

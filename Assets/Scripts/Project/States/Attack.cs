@@ -35,6 +35,8 @@ namespace Project.States{
                 agent.SetState<Idle>();
             }
         }
-        public override void Exit(Agent agent){Debug.Log("Attack Exited");}
+        public override void Exit(Agent agent){
+            agent.StopNavigating();
+            Debug.Log("Attack Exited");}
     }
 }

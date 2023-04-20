@@ -34,6 +34,8 @@ public class Heal : State
             }
         }   
     }
-    public override void Exit(Agent agent){Debug.Log("Heal Exited");}
+    public override void Exit(Agent agent){
+        agent.StopNavigating();
+        Debug.Log("Heal Exited");}
 }
 }
