@@ -19,7 +19,7 @@ public class Idle : State
     public override void Execute(Agent agent){
         if(s.Role == Soldier.SoliderRole.Collector){
             if(!s.CarryingFlag){
-                agent.SetState<CaptureState>();
+                agent.SetState<Retrieve>();
             }
         }
             /*//agent.SetState<Capture>();
