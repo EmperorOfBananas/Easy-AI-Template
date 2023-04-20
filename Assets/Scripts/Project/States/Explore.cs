@@ -10,17 +10,17 @@ public class Explore : State
     Vector3 target;
     public override void Enter(Agent agent){
         s = agent as Soldier;
+        target = SoldierManager.RandomStrategicPosition(s, false);
         Debug.Log("Explore Entered");
     }
     public override void Execute(Agent agent){
         Debug.Log("Explore Executed");
         if(s.Role == Soldier.SoliderRole.Attacker){
-            target = SoldierManager.RandomStrategicPosition(s, false);
             if(agent.transform.position != target){
                 agent.Navigate(target);
             }
             else{
-                agent.SetState<Idle>();
+                agent.SetState<SoldierMind>();
             }
         }
     }

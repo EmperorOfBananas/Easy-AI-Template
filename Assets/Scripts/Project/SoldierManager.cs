@@ -279,9 +279,29 @@ namespace Project
             
             // Get all open spots.
             StrategicPoint[] open = points.Where(s => s.Open).ToArray();
-            
-            // Move to an open spot if there is one, otherwise to a random point.
-            return open.Length > 0 ? open[Random.Range(0, open.Length)].transform.position : points[Random.Range(0, points.Length)].transform.position;
+
+            StrategicPoint chosenPoint;
+            if (open.Length > 0)
+            {
+                chosenPoint = open[Random.Range(0, open.Length)];
+            }
+            else
+            {
+                chosenPoint = points[Random.Range(0, points.Length)];
+            }
+    
+            // Set the chosen point to be occupied
+            chosenPoint.Occupy();
+            return chosenPoint.transform.position;
+        }
+
+        public static void ReleaseStrategicPosition(Soldier s, Vector3 pos, bool defensive){
+            foreach(StrategicPoint p in SoldierSingleton._strategicPoints.Where(p => p.RedTeam == s.RedTeam && p.defensive == defensive).ToArray()){
+                if(p.transform.position == pos){
+                    p.Vacate();
+                    break;
+                }
+            }
         }
 
         /// <summary>

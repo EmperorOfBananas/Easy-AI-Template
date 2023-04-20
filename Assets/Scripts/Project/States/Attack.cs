@@ -32,7 +32,7 @@ namespace Project.States{
             }
             else{
                 s.NoTarget();
-                agent.SetState<Idle>();
+                agent.SetState<SoldierMind>();
             }
         }
         public override void Exit(Agent agent){
