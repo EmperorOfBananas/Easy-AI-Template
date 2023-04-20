@@ -86,7 +86,7 @@ namespace EasyAI.Navigation.Generators
 
             }
             //add node at position (node_x, node_z)
-            NodeArea.AddNode(node_x, node_z);
+            NodeArea.AddNode(adj1, adj2);
         }
     }
 }
