@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: a3d40b28a8b22fb46b517677bee73dc6, type: 2}
 --- !u!1001 &12576668
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1774,6 +1774,10 @@ PrefabInstance:
     - target: {fileID: 4105249788948625989, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
       propertyPath: m_Name
       value: Wall Half (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4105249788948625989, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
@@ -3743,6 +3747,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall Fortified Half (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 5156985810597453471, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5537910116882596901, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -4950,6 +4958,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall Fortified Half (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5156985810597453471, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5537910116882596901, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -5784,6 +5796,10 @@ PrefabInstance:
     - target: {fileID: 4105249788948625989, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
       propertyPath: m_Name
       value: Wall Half (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4105249788948625989, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
@@ -7745,6 +7761,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall Fortified Half (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 5156985810597453471, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5537910116882596901, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -9310,7 +9330,6 @@ MonoBehaviour:
     m_Bits: 64
   pullMaxHeight: 0
   lookupTable: {fileID: 11400000, guid: 611124616ac13a840887e3fda70a9776, type: 2}
-  loadLookupTable: 0
   maxAgentsPerUpdate: 0
   maxMessages: 100
   detailsWidth: 500
@@ -9615,6 +9634,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall Half (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 4105249788948625989, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
 --- !u!4 &471817603 stripped
@@ -9801,6 +9824,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall Half (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 4105249788948625989, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
 --- !u!4 &484709877 stripped
@@ -9862,6 +9889,10 @@ PrefabInstance:
     - target: {fileID: 4105249788948625989, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
       propertyPath: m_Name
       value: Wall Half (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4105249788948625989, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
@@ -10647,6 +10678,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall Fortified Half
       objectReference: {fileID: 0}
+    - target: {fileID: 5156985810597453471, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5537910116882596901, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -10983,6 +11018,10 @@ PrefabInstance:
     - target: {fileID: 4105249788948625989, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
       propertyPath: m_Name
       value: Wall Half (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4105249788948625989, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
@@ -12053,6 +12092,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall Fortified Half (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5156985810597453471, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5537910116882596901, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -12284,6 +12327,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall Fortified Half
       objectReference: {fileID: 0}
+    - target: {fileID: 5156985810597453471, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5537910116882596901, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -12345,6 +12392,10 @@ PrefabInstance:
     - target: {fileID: 5156985810597453471, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
       propertyPath: m_Name
       value: Wall Fortified Half (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5156985810597453471, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5537910116882596901, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
       propertyPath: m_RootOrder
@@ -12511,6 +12562,10 @@ PrefabInstance:
     - target: {fileID: 4105249788948625989, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
       propertyPath: m_Name
       value: Wall Half (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4105249788948625989, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
@@ -13385,6 +13440,10 @@ PrefabInstance:
     - target: {fileID: 5156985810597453471, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
       propertyPath: m_Name
       value: Wall Fortified Half (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5156985810597453471, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5537910116882596901, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
       propertyPath: m_RootOrder
@@ -14508,6 +14567,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall Fortified Half (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5156985810597453471, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5537910116882596901, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -14719,6 +14782,10 @@ PrefabInstance:
     - target: {fileID: 5156985810597453471, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
       propertyPath: m_Name
       value: Wall Fortified Half (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5156985810597453471, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5537910116882596901, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
       propertyPath: m_RootOrder
@@ -15516,6 +15583,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall Half (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4105249788948625989, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
 --- !u!4 &763385126 stripped
@@ -16115,6 +16186,10 @@ PrefabInstance:
     - target: {fileID: 5156985810597453471, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
       propertyPath: m_Name
       value: Wall Fortified Half (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5156985810597453471, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5537910116882596901, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
       propertyPath: m_RootOrder
@@ -16815,6 +16890,10 @@ PrefabInstance:
     - target: {fileID: 4105249788948625989, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
       propertyPath: m_Name
       value: Wall Half
+      objectReference: {fileID: 0}
+    - target: {fileID: 4105249788948625989, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
@@ -19891,6 +19970,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall Half (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4105249788948625989, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
 --- !u!4 &1005498973 stripped
@@ -20093,7 +20176,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7878199462064640416, guid: 193cdf0f3a0e53248aa8d72e55719b1f, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7878199462064640416, guid: 193cdf0f3a0e53248aa8d72e55719b1f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20727,6 +20810,10 @@ PrefabInstance:
     - target: {fileID: 5156985810597453471, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
       propertyPath: m_Name
       value: Wall Fortified Half (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5156985810597453471, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5537910116882596901, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
       propertyPath: m_RootOrder
@@ -22605,6 +22692,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall Half (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 4105249788948625989, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
 --- !u!4 &1113713678 stripped
@@ -23645,6 +23736,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall Half (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4105249788948625989, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
 --- !u!4 &1190547783 stripped
@@ -23669,7 +23764,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 95
   m_IsActive: 1
 --- !u!4 &1193790554
 Transform:
@@ -24628,6 +24723,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall Half (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4105249788948625989, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
 --- !u!4 &1244777929 stripped
@@ -24997,6 +25096,10 @@ PrefabInstance:
     - target: {fileID: 5156985810597453471, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
       propertyPath: m_Name
       value: Wall Fortified Half (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5156985810597453471, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5537910116882596901, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
       propertyPath: m_RootOrder
@@ -26738,7 +26841,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 95
   m_IsActive: 1
 --- !u!64 &1370358640
 MeshCollider:
@@ -26873,6 +26976,10 @@ PrefabInstance:
     - target: {fileID: 4105249788948625989, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
       propertyPath: m_Name
       value: Wall Half (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4105249788948625989, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
@@ -29027,6 +29134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall Fortified Half (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 5156985810597453471, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5537910116882596901, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
       propertyPath: m_RootOrder
       value: 213
@@ -30338,6 +30449,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall Fortified Half (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 5156985810597453471, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5537910116882596901, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
       propertyPath: m_RootOrder
       value: 213
@@ -31099,6 +31214,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall Half (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4105249788948625989, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
 --- !u!4 &1580145836 stripped
@@ -31498,6 +31617,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall Half
       objectReference: {fileID: 0}
+    - target: {fileID: 4105249788948625989, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
 --- !u!4 &1599804113 stripped
@@ -31743,6 +31866,10 @@ PrefabInstance:
     - target: {fileID: 4105249788948625989, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
       propertyPath: m_Name
       value: Wall Half (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4105249788948625989, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
@@ -32278,6 +32405,10 @@ PrefabInstance:
     - target: {fileID: 4105249788948625989, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
       propertyPath: m_Name
       value: Wall Half (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4105249788948625989, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
@@ -33876,6 +34007,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall Fortified Half (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5156985810597453471, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5537910116882596901, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -34455,6 +34590,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall Half (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 4105249788948625989, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
 --- !u!4 &1763498305 stripped
@@ -34578,6 +34717,10 @@ PrefabInstance:
     - target: {fileID: 4105249788948625989, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
       propertyPath: m_Name
       value: Wall Half (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4105249788948625989, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
@@ -34790,6 +34933,10 @@ PrefabInstance:
     - target: {fileID: 5156985810597453471, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
       propertyPath: m_Name
       value: Wall Fortified Half (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5156985810597453471, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5537910116882596901, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
       propertyPath: m_RootOrder
@@ -35652,6 +35799,10 @@ PrefabInstance:
     - target: {fileID: 5156985810597453471, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
       propertyPath: m_Name
       value: Wall Fortified Half (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5156985810597453471, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5537910116882596901, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
       propertyPath: m_RootOrder
@@ -36815,6 +36966,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall Fortified Half (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5156985810597453471, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5537910116882596901, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -37760,6 +37915,10 @@ PrefabInstance:
     - target: {fileID: 5156985810597453471, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
       propertyPath: m_Name
       value: Wall Fortified Half (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5156985810597453471, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5537910116882596901, guid: 59646a81cf8223b46b51c96fe462385f, type: 3}
       propertyPath: m_RootOrder
@@ -39832,6 +39991,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall Half (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4105249788948625989, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
 --- !u!4 &2012962149 stripped
@@ -40975,6 +41138,10 @@ PrefabInstance:
     - target: {fileID: 4105249788948625989, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
       propertyPath: m_Name
       value: Wall Half (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4105249788948625989, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 516f5a766424a4649adfd89f01fee976, type: 3}
@@ -42979,6 +43146,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cornerNodeSteps: 3
+  x: 417
+  z: 305
 --- !u!1 &2141623359
 GameObject:
   m_ObjectHideFlags: 0

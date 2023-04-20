@@ -21,6 +21,7 @@ namespace EasyAI.Navigation.Generators
         public override void Generate()
         {
             // TODO - Assignment 4 - Complete corner-graph node generation.
+
             x = NodeArea.RangeX;
             z = NodeArea.RangeZ;
             for(int i = 0; i < x; i++){
@@ -62,22 +63,27 @@ namespace EasyAI.Navigation.Generators
             }
         }
 
+        
         //Takes the position of a corner and calculates a new position to place the node for that corner
         public void Place(int corner_x, int corner_z){
-            int node_x, node_z;
+            int adj1, adj2;
             //if a direction leading away from the corner is clear, node_x will go 4 positions towards that direction
             if(NodeArea.IsOpen(corner_x - 1, corner_z)){
-                node_x = corner_x - 4;
+                adj1 = corner_x - 1;
             }
             else{
-                node_x = corner_x + 4;
+                adj1 = corner_x + 1;
             }
             //same as above
             if(NodeArea.IsOpen(corner_x, corner_z - 1)){
-                node_z = corner_z - 4;
+                adj2 = corner_z - 1;
             }
             else{
-                node_z = corner_z + 4;
+                adj2 = corner_z + 1;
+            }
+
+            for(int i = 0; i <= cornerNodeSteps; i++){
+
             }
             //add node at position (node_x, node_z)
             NodeArea.AddNode(node_x, node_z);

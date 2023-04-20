@@ -12,6 +12,7 @@ namespace Project.States
         public override void Execute(Agent agent)
         {
             // TODO - Project - Create unique behaviours for your soldiers to play capture the flag.
+            agent.SetState<Idle>();
         }
     }
 }
