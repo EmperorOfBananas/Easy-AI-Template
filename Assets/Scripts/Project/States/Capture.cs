@@ -14,15 +14,18 @@ public class Capture : State
         s = agent as Soldier;
     }
     public override void Execute(Agent agent){
-        if(!s.CarryingFlag){
-            agent.Navigate(s.EnemyFlagPosition);
-        }
-        else{
-            agent.SetState<Retrieve>();
-        }
-        /*else if(!s.Alive){
-            agent.SetState<Idle>();
-        }*/     
+        if (!s.CarryingFlag) {
+        agent.Navigate(s.EnemyFlagPosition);
+    }
+    else {
+        Debug.Log("Carrying flag, setting Retrieve state");
+        agent.SetState<Retrieve>();
+    }
+
+    if (!s.Alive) {
+        Debug.Log("Agent is dead, setting Idle state");
+        agent.SetState<Idle>();
+    }
     }
     public override void Exit(Agent agent){Debug.Log("Capture Exited");}
 }
