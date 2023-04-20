@@ -19,6 +19,7 @@ public class Ammo : State
         Debug.Log("Ammo Entered");
     }
     public override void Execute(Agent agent){
+        Debug.Log("Ammo Executed");
         if(target != null){
             if(!target[0].Ready){
                 target = null;

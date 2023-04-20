@@ -19,6 +19,7 @@ public class Heal : State
         Debug.Log("Heal Entered");
     }
     public override void Execute(Agent agent){
+        Debug.Log("Heal Executed");
         if(target != null){
             if(!target[0].Ready){
                 target = null;

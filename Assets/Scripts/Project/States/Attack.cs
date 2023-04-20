@@ -13,6 +13,7 @@ namespace Project.States{
             s = agent as Soldier;
         }
         public override void Execute(Agent agent){
+            Debug.Log("Attack Executed");
             if(s.Target != null){
                 agent.Navigate(s.Target.Value.Position);
                 dir = agent.transform.position - s.Target.Value.Position;

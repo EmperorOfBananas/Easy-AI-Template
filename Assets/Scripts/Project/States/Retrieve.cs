@@ -13,7 +13,7 @@ public class Retrieve : State
         s = agent as Soldier;
     }
     public override void Execute(Agent agent){
-        Debug.Log("Capture Executed");
+        Debug.Log("Retrieve Executed");
         while(s.CarryingFlag){
             agent.Navigate(s.BasePosition);
         }

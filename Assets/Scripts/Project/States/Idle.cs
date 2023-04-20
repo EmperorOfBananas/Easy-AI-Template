@@ -17,6 +17,7 @@ public class Idle : State
         Debug.Log("Idle Entered");
     }
     public override void Execute(Agent agent){
+        Debug.Log("Idle Executed");
         if(s.Role == Soldier.SoliderRole.Collector){
             if(!s.CarryingFlag){
                 agent.SetState<Retrieve>();
