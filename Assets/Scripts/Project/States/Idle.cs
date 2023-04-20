@@ -18,12 +18,12 @@ public class Idle : State
     }
     public override void Execute(Agent agent){
         Debug.Log("Idle Executed");
-        if(s.Role == Soldier.SoliderRole.Collector){
+        /*if(s.Role == Soldier.SoliderRole.Collector){
             if(!s.CarryingFlag){
-                agent.SetState<Retrieve>();
+                agent.SetState<Heal>();
             }
         }
-            /*//agent.SetState<Capture>();
+            //agent.SetState<Capture>();
             dir = s.BasePosition*(-1) - agent.transform.position;
             dist = Mathf.RoundToInt(dir.magnitude);
             if(dist > 10){
@@ -33,29 +33,22 @@ public class Idle : State
                 agent.Navigate(s.EnemyFlagPosition);
             }
             //Sagent.Navigate(s.EnemyFlagPosition);
+        }*/
+        if(s.Role == Soldier.SoliderRole.Collector){
+        
         }
-        /*if(s.DetectedEnemies.Count > 0){
-            Soldier.EnemyMemory target = s.DetectedEnemies.OrderBy(e => e.Visible).ThenBy(e => Vector3.Distance(agent.transform.position, e.Position)).First();
-            s.SetTarget(new(){Enemy = target.Enemy, Position = target.Position, Visible = target.Visible});
-            agent.SetState<Attack>();
-        }
-        if(s.Weapons[1].Ammo < s.Weapons[1].Ammo/2){
-            agent.SetState<Ammo>();
-        }
-        else if(s.Health <= 50){
-            agent.SetState<Heal>();
-        }
-        else if(!s.CarryingFlag){
-            //agent.Navigate(s.EnemyFlagPosition);
-            dir = s.BasePosition*(-1) - agent.transform.position;
-            dist = Mathf.RoundToInt(dir.magnitude);
-            if(dist > 5){
-                agent.Navigate(s.BasePosition*(-1));
+        else if(s.Role == Soldier.SoliderRole.Attacker){
+            if(s.DetectedEnemies.Count > 0 && s.Health > 50){
+                Soldier.EnemyMemory target = s.DetectedEnemies.OrderBy(e => e.Visible).ThenBy(e => Vector3.Distance(agent.transform.position, e.Position)).First();
+                s.SetTarget(new(){Enemy = target.Enemy, Position = target.Position, Visible = target.Visible});
+                agent.SetState<Attack>();
             }
-            else{
-                agent.Navigate(s.EnemyFlagPosition);
-            }
-        }*/    
+            else if(s.Health <= 50){agent.SetState<Heal>();}
+            if(s.Weapons[1].Ammo < s.Weapons[1].Ammo/2){agent.SetState<Ammo>();}   
+        }
+        else if(s.Role == Soldier.SoliderRole.Defender){
+
+        }
     }
     public override void Exit(Agent agent){Debug.Log("Idle Exited");}
 }
