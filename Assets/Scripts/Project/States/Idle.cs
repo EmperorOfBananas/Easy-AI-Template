@@ -12,20 +12,17 @@ public class Idle : State
     Soldier s;
     Vector3 dir;
     int dist;
-    //private NavMeshAgent nav;
-    //private GameObject go;
+    private NavMeshAgent nav;
+    private GameObject go;
     public override void Enter(Agent agent){
         s = agent as Soldier;
-        //nav = agent.GetComponent<NavMeshAgent>();
+        nav = agent.GetComponent<NavMeshAgent>();
         Debug.Log("Idle Entered");
     }
     public override void Execute(Agent agent){
         if(s.Role == Soldier.SoliderRole.Collector && !s.CarryingFlag /*&& ((s.RedTeam && FlagPickup.BlueFlag != null) || (!s.RedTeam && FlagPickup.RedFlag != null))*/){
-            //go.transform.position = s.EnemyFlagPosition;
-            //nav.SetDestination(s.EnemyFlagPosition);   
-        }
             //agent.SetState<Capture>();
-            /*dir = s.BasePosition*(-1) - agent.transform.position;
+            dir = s.BasePosition*(-1) - agent.transform.position;
             dist = Mathf.RoundToInt(dir.magnitude);
             if(dist > 10){
                 agent.Navigate(s.EnemyFlagPosition);
