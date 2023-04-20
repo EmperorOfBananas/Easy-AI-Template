@@ -29,6 +29,7 @@ namespace EasyAI.Navigation.Generators
                     if(j > 0 && j < z - 1){//if within the boundaries of RangeZ
                         if(NodeArea.IsOpen(i, j) && !NodeArea.IsOpen(i, j-1)){//current area is open and last one was closed
                             if(isConvex(i, j-1)){//check if last area was a convex corner
+                            
                                 Place(i, j - 1);//calculate where the node for this corner should be
                             }
                         }
