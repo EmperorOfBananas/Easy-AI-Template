@@ -14,6 +14,7 @@ public class CaptureState : State
         s = agent as Soldier;
     }
     public override void Execute(Agent agent){
+        Debug.Log("Capture Executed");
         if (!s.CarryingFlag) {
             Debug.Log("Getting flag");
             agent.Navigate(s.EnemyFlagPosition);
