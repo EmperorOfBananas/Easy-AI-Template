@@ -22,7 +22,6 @@ public class Retrieve : State
         }  
     }
     public override void Exit(Agent agent){
-        agent.StopNavigating();
         Debug.Log("Retrieve Exited");}
 }
 }

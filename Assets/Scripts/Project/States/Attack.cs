@@ -32,11 +32,10 @@ namespace Project.States{
             }
             else{
                 s.NoTarget();
-                agent.SetState<SoldierMind>();
+                agent.SetState<Idle>();
             }
         }
         public override void Exit(Agent agent){
-            agent.StopNavigating();
             Debug.Log("Attack Exited");}
     }
 }

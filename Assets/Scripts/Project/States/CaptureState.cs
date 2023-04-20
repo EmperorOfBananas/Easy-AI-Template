@@ -30,7 +30,6 @@ public class CaptureState : State
         }
     }
     public override void Exit(Agent agent){
-        agent.StopNavigating();
         Debug.Log("Capture Exited");}
 }
 }

@@ -7,25 +7,26 @@ namespace Project.States{
 public class Explore : State
 {
     Soldier s;
+    bool defensive;
     Vector3 target;
     public override void Enter(Agent agent){
         s = agent as Soldier;
-        target = SoldierManager.RandomStrategicPosition(s, false);
+        defensive = false;
+        if(s.Role == Soldier.SoliderRole.Defender){defensive=true;}
+        //SoldierManager.ReleaseStrategicPosition(s, agent.transform.position, defensive);
+        target = SoldierManager.RandomStrategicPosition(s, defensive);
         Debug.Log("Explore Entered");
     }
     public override void Execute(Agent agent){
         Debug.Log("Explore Executed");
-        if(s.Role == Soldier.SoliderRole.Attacker){
-            if(agent.transform.position != target){
-                agent.Navigate(target);
-            }
-            else{
-                agent.SetState<SoldierMind>();
-            }
+        if(agent.transform.position != target){
+            agent.Navigate(target);
+        }
+        else{
+            agent.SetState<Idle>();
         }
     }
     public override void Exit(Agent agent){
-        agent.StopNavigating();
         Debug.Log("Explore Exited");}
 }
 }

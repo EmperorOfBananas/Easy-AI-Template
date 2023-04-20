@@ -35,7 +35,6 @@ public class Ammo : State
         }   
     }
     public override void Exit(Agent agent){
-        agent.StopNavigating();
         Debug.Log("Ammo Exited");}
 }
 }

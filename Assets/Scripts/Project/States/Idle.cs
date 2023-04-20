@@ -11,8 +11,11 @@ public class Idle : State
     Soldier s;
     Vector3 dir;
     int dist;
+    bool defensive;
+    Vector3 target;
     public override void Enter(Agent agent){
         s = agent as Soldier;
+        defensive = false;
         Debug.Log("Idle Entered");
     }
     public override void Execute(Agent agent){
@@ -33,30 +36,39 @@ public class Idle : State
             }
             //Sagent.Navigate(s.EnemyFlagPosition);
         }*/
-        Debug.Log(agent.name + " is a " + s.Role);
-        if(s.Role == Soldier.SoliderRole.Collector){
-        
-        }
-        else if(s.Role == Soldier.SoliderRole.Attacker){
+        /*if(s.Role == Soldier.SoliderRole.Collector){
+            Debug.Log("test 1");
+        }*/
+        if(s.Role == Soldier.SoliderRole.Attacker){
+            //Debug.Log(agent.name + " is a " + s.Role);
             dir = agent.transform.position - s.EnemyFlagPosition;
             dist = Mathf.RoundToInt(dir.magnitude);
             if(s.DetectedEnemies.Count > 0 && s.Health > 50){
+                Debug.Log("test 1");
                 Soldier.EnemyMemory target = s.DetectedEnemies.OrderBy(e => e.Visible).ThenBy(e => Vector3.Distance(agent.transform.position, e.Position)).First();
                 s.SetTarget(new(){Enemy = target.Enemy, Position = target.Position, Visible = target.Visible});
                 agent.SetState<Attack>();
             }
-            else if(s.Health <= 50){agent.SetState<Heal>();}
-            else if(s.Weapons[1].Ammo < s.Weapons[1].Ammo/2){agent.SetState<Ammo>();}
+            else if(s.Health <= 50){
+                Debug.Log("test 2");
+                agent.SetState<Heal>();}
+            else if(s.Weapons[1].Ammo < s.Weapons[1].Ammo/2){
+                Debug.Log("test 3");
+                agent.SetState<Ammo>();}
             else{
-                agent.SetState<Explore>();
+                if(agent.transform.position != target){
+                    agent.Navigate(target);
+                }
+                else{
+                    target = SoldierManager.RandomStrategicPosition(s, false);
+                }
             }   
         }
-        else if(s.Role == Soldier.SoliderRole.Defender){
-
-        }
+        /*else if(s.Role == Soldier.SoliderRole.Defender){
+            Debug.Log("test 2");
+        }*/
     }
     public override void Exit(Agent agent){
-        agent.StopNavigating();
         Debug.Log("Idle Exited");}
 }
 }

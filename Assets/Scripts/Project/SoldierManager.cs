@@ -275,34 +275,41 @@ namespace Project
         public static Vector3 RandomStrategicPosition(Soldier soldier, bool defensive)
         {
             // Get all points for the team and for the given type.
-            StrategicPoint[] points = SoldierSingleton._strategicPoints.Where(p => p.RedTeam == soldier.RedTeam && p.defensive == defensive).ToArray();
+            //removed : p.RedTeam == soldier.RedTeam &&
+            StrategicPoint[] points = SoldierSingleton._strategicPoints.Where(p => p.defensive == defensive).ToArray();
             
             // Get all open spots.
             StrategicPoint[] open = points.Where(s => s.Open).ToArray();
 
-            StrategicPoint chosenPoint;
-            if (open.Length > 0)
-            {
-                chosenPoint = open[Random.Range(0, open.Length)];
+            // Move to an open spot if there is one, otherwise to a random point.
+            return open.Length > 0 ? open[Random.Range(0, open.Length)].transform.position : points[Random.Range(0, points.Length)].transform.position;
+            /*StrategicPoint chosenPoint;
+            int i;
+            if (open.Length > 0)//if there are some points open
+            {   
+                i = new System.Random().Next(open.Length);
+                chosenPoint = open[i];
             }
-            else
+            else//no open points
             {
-                chosenPoint = points[Random.Range(0, points.Length)];
+                i = new System.Random().Next(points.Length);
+                chosenPoint = points[i];
             }
     
             // Set the chosen point to be occupied
             chosenPoint.Occupy();
-            return chosenPoint.transform.position;
+            return chosenPoint.transform.position;*/
         }
 
-        public static void ReleaseStrategicPosition(Soldier s, Vector3 pos, bool defensive){
+        /*public static void ReleaseStrategicPosition(Soldier s, Vector3 pos, bool defensive){
             foreach(StrategicPoint p in SoldierSingleton._strategicPoints.Where(p => p.RedTeam == s.RedTeam && p.defensive == defensive).ToArray()){
                 if(p.transform.position == pos){
+                    //vacate chosen point
                     p.Vacate();
                     break;
                 }
             }
-        }
+        }*/
 
         /// <summary>
         /// Get a health pack to move to.

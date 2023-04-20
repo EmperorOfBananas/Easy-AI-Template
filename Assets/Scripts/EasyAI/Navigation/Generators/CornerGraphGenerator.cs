@@ -67,27 +67,23 @@ namespace EasyAI.Navigation.Generators
         
         //Takes the position of a corner and calculates a new position to place the node for that corner
         public void Place(int corner_x, int corner_z){
-            int adj1, adj2;
+            int node_x, node_z;
             //if a direction leading away from the corner is clear, node_x will go 4 positions towards that direction
             if(NodeArea.IsOpen(corner_x - 1, corner_z)){
-                adj1 = corner_x - 1;
+                node_x = corner_x - cornerNodeSteps;
             }
             else{
-                adj1 = corner_x + 1;
+                node_x = corner_x + cornerNodeSteps;
             }
             //same as above
             if(NodeArea.IsOpen(corner_x, corner_z - 1)){
-                adj2 = corner_z - 1;
+                node_z = corner_z - cornerNodeSteps;
             }
             else{
-                adj2 = corner_z + 1;
-            }
-
-            for(int i = 0; i <= cornerNodeSteps; i++){
-
+                node_z = corner_z + cornerNodeSteps;
             }
             //add node at position (node_x, node_z)
-            NodeArea.AddNode(adj1, adj2);
+            NodeArea.AddNode(node_x, node_z);
         }
     }
 }
