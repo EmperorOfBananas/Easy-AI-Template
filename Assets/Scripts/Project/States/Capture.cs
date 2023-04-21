@@ -16,11 +16,11 @@ public class Capture : State
         Debug.Log("Capture Executed");
         s = agent as Soldier;
         if(!s.CarryingFlag) {
-            Debug.Log("Getting flag");
+            //dir = agent.transform.position - s.EnemyFlagPosition;
+            //dist = Mathf.RoundToInt(dir.magnitude);
             agent.Navigate(s.EnemyFlagPosition);
         }
         else{
-            Debug.Log("Carrying flag, setting Retrieve state");
             agent.SetState<Retrieve>();
         }
     }

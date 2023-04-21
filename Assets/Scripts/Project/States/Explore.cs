@@ -11,6 +11,7 @@ public class Explore : State
     bool selected_col, selected_atk, selected_def;
     List<Vector3> offense;
     List<Vector3> defense;
+    List<Soldier> partner;
     int dist_col, dist_col_flag, dist_atk, dist_def;
     Vector3 dir_col, dir_col_flag, dir_atk, dir_def;
     public override void Enter(Agent agent){
@@ -24,19 +25,25 @@ public class Explore : State
         s = agent as Soldier;
         switch (s.Role) {
             case Soldier.SoliderRole.Collector:
-                dir_col = agent.transform.position - s.GetTeam()[0].transform.position;
-                dist_col = Mathf.RoundToInt(dir_col.magnitude);
-                dir_col_flag = agent.transform.position - s.EnemyFlagPosition;
-                dist_col_flag = Mathf.RoundToInt(dir_col_flag.magnitude);
-                if(s.GetTeam()[0].Alive && dist > 5){
-                    agent.Navigate(s.GetTeam()[0]);
-                }
-                else if(dist_col_flag < 25){
-                    agent.SetState<Capture>();
+                /*partner = s.SenseAll<TeamSensor, List<Soldier>>().SelectMany(x => x).ToList();
+                if(partner.Count > 0){
+                    dir_col = agent.transform.position - partner[0].transform.position;
+                    dist_col = Mathf.RoundToInt(dir_col.magnitude);
+                    dir_col_flag = agent.transform.position - s.EnemyFlagPosition;
+                    dist_col_flag = Mathf.RoundToInt(dir_col_flag.magnitude);
+                    if(partner[0].Alive && dist_col > 5){
+                        agent.Navigate(partner[0].transform.position);
+                    }
+                    else if(dist_col_flag < 25){
+                        agent.SetState<Capture>();
+                    }
+                    else{
+                        agent.SetState<Idle>();
+                    }
                 }
                 else{
                     agent.SetState<Idle>();
-                }
+                }*/
                 break;
             case Soldier.SoliderRole.Attacker:
                 if(selected_atk){

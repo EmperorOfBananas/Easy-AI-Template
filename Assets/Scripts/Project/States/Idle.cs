@@ -26,9 +26,6 @@ public class Idle : State
                 if(!s.CarryingFlag && dist < 25){
                     agent.SetState<Capture>();
                 }
-                else if(s.CarryingFlag){
-                    agent.SetState<Retrieve>();
-                }
                 else{
                     agent.SetState<Explore>();
                 }
