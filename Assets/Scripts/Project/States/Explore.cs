@@ -25,6 +25,7 @@ public class Explore : State
         s = agent as Soldier;
         switch (s.Role) {
             case Soldier.SoliderRole.Collector:
+                agent.SetState<Capture>();
                 /*partner = s.SenseAll<TeamSensor, List<Soldier>>().SelectMany(x => x).ToList();
                 if(partner.Count > 0){
                     dir_col = agent.transform.position - s.EnemyFlagPosition;

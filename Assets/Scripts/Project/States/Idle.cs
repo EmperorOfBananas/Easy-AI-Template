@@ -12,7 +12,6 @@ public class Idle : State
     Vector3 dir;
     int dist;
     bool defensive;
-    Vector3 target;
     public override void Enter(Agent agent){
         defensive = false;
         Debug.Log("Idle Entered");
@@ -23,9 +22,18 @@ public class Idle : State
             case Soldier.SoliderRole.Collector:
                 dir = agent.transform.position - s.EnemyFlagPosition;
                 dist = Mathf.RoundToInt(dir.magnitude);
-                if(!s.CarryingFlag && dist < 25){
+                if(!s.CarryingFlag && dist < 35){
                     agent.SetState<Capture>();
                 }
+                else if(s.Health <= 60 && !s.CarryingFlag){
+                    agent.SetState<Heal>();}
+                else if(s.DetectedEnemies.Count > 0 && s.Health > 60 && !s.CarryingFlag){
+                    Soldier.EnemyMemory target = s.DetectedEnemies.OrderBy(e => e.Visible).ThenBy(e => Vector3.Distance(agent.transform.position, e.Position)).First();
+                    s.SetTarget(new(){Enemy = target.Enemy, Position = target.Position, Visible = target.Visible});
+                    agent.SetState<Attack>();
+                }
+                else if(s.Weapons[1].Ammo < s.Weapons[1].Ammo/2 && !s.CarryingFlag){
+                    agent.SetState<Ammo>();}
                 /*else{
                     agent.SetState<Explore>();
                 }*/
@@ -45,11 +53,20 @@ public class Idle : State
                 }
                 break;
             case Soldier.SoliderRole.Defender:
-                if(s.DetectedEnemies.Count > 0 && s.Health > 30){
-                    Soldier.EnemyMemory target = s.DetectedEnemies.OrderBy(e => e.Visible).ThenBy(e => Vector3.Distance(agent.transform.position, e.Position)).First();
-                    s.SetTarget(new(){Enemy = target.Enemy, Position = target.Position, Visible = target.Visible});
-                    agent.SetState<Attack>();
-                }
+                if(s.DetectedEnemies.Count > 0){
+                    Soldier.EnemyMemory target = s.DetectedEnemies.Where(e => e.HasFlag).OrderBy(e => e.Visible).ThenBy(e => Vector3.Distance(agent.transform.position, e.Position)).FirstOrDefault();
+    
+                    if(target != null){
+                        s.SetTarget(new() { Enemy = target.Enemy, Position = target.Position, Visible = target.Visible });
+                        agent.SetState<Attack>();
+                    }
+                    else if(s.Health > 30){
+                        // No enemies carrying the team flag detected, revert to the original behavior
+                        target = s.DetectedEnemies.OrderBy(e => e.Visible).ThenBy(e => Vector3.Distance(agent.transform.position, e.Position)).First();
+                        s.SetTarget(new() { Enemy = target.Enemy, Position = target.Position, Visible = target.Visible });
+                        agent.SetState<Attack>();
+                    }
+                }    
                 else if(s.Health <= 30){
                     agent.SetState<Heal>();}
                 else if(s.Weapons[1].Ammo < s.Weapons[1].Ammo/3){
