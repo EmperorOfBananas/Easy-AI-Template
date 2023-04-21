@@ -42,7 +42,7 @@ namespace EasyAI.Navigation
             }
             Debug.Log("goal: " + goal + " neighbours: " + test);//debug which nodes have connections and which don't
             //A* algorithm loop
-            while(open.Count > 0){
+            while(open.Count > 0){//loop continues until either goal is reached or we run out of open nodes
                 curr = visit(open);//visit the most appropriate node in the open list
                 open.Remove(curr);//remove it from open list
                 curr.Close();//close it

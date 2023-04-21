@@ -32,7 +32,7 @@ namespace EasyAI.Navigation.Generators
                                 //so according to the research I've done, most node corner graph algorithms check the diagonal area around a node
                                 //at somepoint after discovering the convex corners. I've been reading the slides to try and understand exactly how this point of the algorithm works.
                                 //I've seen episode 2 of this series: https://www.youtube.com/watch?v=-L-WgKMFuhE&list=PLFt_AvWsXl0cq5Umv3pMC9SPnKjfp9eGW , thinking it might help but 
-                                //the creator didn't seem to check diagonals. I'm unsure as to what sould happen if a diagonal is open versus closed. Would it be used as one of the corner's sides in Place()?
+                                //the creator didn't seem to check diagonals. I'm unsure as to what should happen if a diagonal is open versus closed. Would it be used as one of the corner's sides in Place()?
                                 Place(i, j - 1);//calculate where the node for this corner should be
                             }
                         }
