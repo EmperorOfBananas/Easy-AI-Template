@@ -11,7 +11,7 @@ public class Explore : State
     bool selected_col, selected_atk, selected_def;//used to indicate that a target for the exploration, or a partner for the collector has been found
     List<Vector3> offense;//list of offense points
     List<Vector3> defense;//list of defense points
-    List<Soldier> partner;//used to collect data from TeamSensor
+    List<Soldier> team;//used to collect data from TeamSensor
     int dist_col, dist_atk, dist_def;//distance between soldier and their destination
     Vector3 dir_col, dir_atk, dir_def;//direction a soldier is heading in
     public override void Enter(Agent agent){
@@ -26,25 +26,29 @@ public class Explore : State
         switch (s.Role) {
             /*case Soldier.SoliderRole.Collector:
                 if(selected_col){
-                    dir_col = agent.transform.position - s.EnemyFlagPosition;
-                    dist_col = Mathf.RoundToInt(dir_col.magnitude);
-                    if(partner[0].Alive && dist_col > 20){
-                        s.Navigate(s.EnemyFlagPosition);
-                        partner[0].Navigate(s.EnemyFlagPosition);
+                    if(team.Count > 0){
+                        if(Vector3.Distance(agent.transform.position, team[0].transform.position) > 5f){
+                            s.Navigate(team[0].transform.position);
+                            team[0].Navigate(offense[0]);
+                        }
                     }
-                    else if(!partner[0].Alive){
+                    else{
                         agent.SetState<Idle>();
-                    }
-                    else if(dist_col <= 20){
-                        agent.SetState<Capture>();
                     }
                 }
                 else{
-                    partner = s.SenseAll<TeamSensor, List<Soldier>>().SelectMany(x => x).ToList();
-                    if(partner.Count == 0){
+                    if(s.RedTeam){
+                        team = SoldierManager.TeamRed;
+                    }
+                    else{
+                        team = SoldierManager.TeamBlue;
+                    }
+                    team = team.OrderBy(x => Vector3.Distance(x.transform.position, s.transform.position)).ToList();
+                    offense = agent.SenseAll<RandomOffensivePositionSensor, Vector3>();
+                    if(team.Count > 0 || offense.Count > 0){
                         agent.SetState<Idle>();
                     }
-                    selected_col = true;    
+                    selected_col = true;
                 }
                 break;*/
             case Soldier.SoliderRole.Attacker:
