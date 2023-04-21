@@ -31,7 +31,7 @@ public class Heal : State
         }
         else{
             target = agent.SenseAll<NearestHealthPickupSensor, HealthAmmoPickup>();
-            if(target == null){
+            if(target.Count == 0){
                 agent.SetState<Idle>();
             }
         }   

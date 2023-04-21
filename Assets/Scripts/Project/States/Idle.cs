@@ -26,9 +26,9 @@ public class Idle : State
                 if(!s.CarryingFlag && dist < 25){
                     agent.SetState<Capture>();
                 }
-                else{
+                /*else{
                     agent.SetState<Explore>();
-                }
+                }*/
                 break;
             case Soldier.SoliderRole.Attacker:
                 if(s.DetectedEnemies.Count > 0 && s.Health > 50){

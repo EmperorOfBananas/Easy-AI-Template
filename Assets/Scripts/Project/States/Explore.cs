@@ -12,8 +12,8 @@ public class Explore : State
     List<Vector3> offense;
     List<Vector3> defense;
     List<Soldier> partner;
-    int dist_col, dist_col_flag, dist_atk, dist_def;
-    Vector3 dir_col, dir_col_flag, dir_atk, dir_def;
+    int dist_col, dist_atk, dist_def;
+    Vector3 dir_col, dir_atk, dir_def;
     public override void Enter(Agent agent){
         selected_col = false;
         selected_atk = false;
@@ -27,18 +27,17 @@ public class Explore : State
             case Soldier.SoliderRole.Collector:
                 /*partner = s.SenseAll<TeamSensor, List<Soldier>>().SelectMany(x => x).ToList();
                 if(partner.Count > 0){
-                    dir_col = agent.transform.position - partner[0].transform.position;
+                    dir_col = agent.transform.position - s.EnemyFlagPosition;
                     dist_col = Mathf.RoundToInt(dir_col.magnitude);
-                    dir_col_flag = agent.transform.position - s.EnemyFlagPosition;
-                    dist_col_flag = Mathf.RoundToInt(dir_col_flag.magnitude);
-                    if(partner[0].Alive && dist_col > 5){
-                        agent.Navigate(partner[0].transform.position);
+                    if(partner[0].Alive && dist_col > 20){
+                        s.Navigate(s.EnemyFlagPosition);
+                        partner[0].Navigate(s.EnemyFlagPosition);
                     }
-                    else if(dist_col_flag < 25){
-                        agent.SetState<Capture>();
-                    }
-                    else{
+                    else if(!partner[0].Alive){
                         agent.SetState<Idle>();
+                    }
+                    else if(dist_col <= 20){
+                        agent.SetState<Capture>();
                     }
                 }
                 else{
