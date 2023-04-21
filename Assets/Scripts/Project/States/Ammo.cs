@@ -19,12 +19,14 @@ public class Ammo : State
         Debug.Log("Ammo Executed");
         s = agent as Soldier;
         if(target != null){//if ammo pickup is selected
-            if(!target[0].Ready){//if ammo not ready
-                target = null;
-                agent.SetState<Idle>();
-            }
-            else{//otherwise, go to ammo
-                agent.Navigate(target[0].transform.position);
+            if(target.Count > 0){
+                if(!target[0].Ready){//if ammo not ready
+                    target = null;
+                    agent.SetState<Idle>();
+                }
+                else{//otherwise, go to ammo
+                    agent.Navigate(target[0].transform.position);
+                }
             }
         }
         else{//if ammo pickup not yet selected

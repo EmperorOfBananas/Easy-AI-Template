@@ -23,6 +23,7 @@ public class Explore : State
     public override void Execute(Agent agent){
         Debug.Log("Explore Executed");
         s = agent as Soldier;
+        
         switch (s.Role) {
             /*case Soldier.SoliderRole.Collector:
                 if(selected_col){
@@ -93,7 +94,7 @@ public class Explore : State
                     else if(!s.RedTeam){//soldier is in Blue team
                         defense = agent.SenseAll<RandomDefensivePositionSensor, Vector3>();
                     }
-                    if(defense.Count <= 0){//no defensive points found
+                    if(defense.Count > 0){//no defensive points found
                         agent.SetState<Idle>();
                     }
                     selected_def = true;

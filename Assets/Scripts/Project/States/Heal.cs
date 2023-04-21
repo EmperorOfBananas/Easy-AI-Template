@@ -20,14 +20,16 @@ public class Heal : State
     public override void Execute(Agent agent){
         Debug.Log("Heal Executed");
         s = agent as Soldier;
-        if(target != null){//if health pickup not found
-            if(!target[0].Ready){//if pickup not ready
-                target = null;
-                agent.SetState<Idle>();
-            }
-            else{//otherwise, travel to pickup
-                agent.Navigate(target[0].transform.position);
-            }
+        if(target != null){//if ammo pickup is selected
+            if(target.Count > 0){
+                if(!target[0].Ready){//if pickup not ready
+                    target = null;
+                    agent.SetState<Idle>();
+                }
+                else{//otherwise, travel to pickup
+                    agent.Navigate(target[0].transform.position);
+                }
+            }    
         }
         else{//find pickup
             target = agent.SenseAll<NearestHealthPickupSensor, HealthAmmoPickup>();
