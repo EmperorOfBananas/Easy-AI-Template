@@ -14,10 +14,10 @@ public class Retrieve : State
     public override void Execute(Agent agent){
         Debug.Log("Retrieve Executed");
         s = agent as Soldier;
-        while(s.CarryingFlag){
+        if(s.CarryingFlag){
             agent.Navigate(s.BasePosition);
         }
-        if(!s.CarryingFlag){
+        else{
             agent.SetState<Idle>();
         }  
     }

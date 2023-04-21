@@ -19,11 +19,19 @@ public class Idle : State
     }
     public override void Execute(Agent agent){
         s = agent as Soldier;
-        dir = agent.transform.position - s.EnemyFlagPosition;
-        dist = Mathf.RoundToInt(dir.magnitude);
         switch (s.Role) {
             case Soldier.SoliderRole.Collector:
-                Debug.Log("agent: " + s.name + " is a collector");
+                dir = agent.transform.position - s.EnemyFlagPosition;
+                dist = Mathf.RoundToInt(dir.magnitude);
+                if(!s.CarryingFlag && dist < 25){
+                    agent.SetState<Capture>();
+                }
+                else if(s.CarryingFlag){
+                    agent.SetState<Retrieve>();
+                }
+                else{
+                    agent.SetState<Explore>();
+                }
                 break;
             case Soldier.SoliderRole.Attacker:
                 if(s.DetectedEnemies.Count > 0 && s.Health > 50){
