@@ -40,7 +40,18 @@ public class Idle : State
                 }
                 break;
             case Soldier.SoliderRole.Defender:
-                Debug.Log("agent: " + s.name + " is a defender");
+                if(s.DetectedEnemies.Count > 0 && s.Health > 30){
+                    Soldier.EnemyMemory target = s.DetectedEnemies.OrderBy(e => e.Visible).ThenBy(e => Vector3.Distance(agent.transform.position, e.Position)).First();
+                    s.SetTarget(new(){Enemy = target.Enemy, Position = target.Position, Visible = target.Visible});
+                    agent.SetState<Attack>();
+                }
+                else if(s.Health <= 30){
+                    agent.SetState<Heal>();}
+                else if(s.Weapons[1].Ammo < s.Weapons[1].Ammo/3){
+                    agent.SetState<Ammo>();}
+                else{
+                    agent.SetState<Explore>();
+                }
                 break;
             default:
                 break;

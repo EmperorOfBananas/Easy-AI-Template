@@ -14,7 +14,7 @@ namespace Project.States{
         public override void Execute(Agent agent){
             Debug.Log("Attack Executed");
             s = agent as Soldier;
-            if(s.Target != null){
+            if(s.Target != null && s.Target.Value.Visible){
                 agent.Navigate(s.Target.Value.Position);
                 dir = agent.transform.position - s.Target.Value.Position;
                 dist = Mathf.RoundToInt(dir.magnitude);

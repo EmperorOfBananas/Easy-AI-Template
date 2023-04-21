@@ -2,31 +2,87 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Project.Sensors;
 using EasyAI;
 namespace Project.States{
 public class Explore : State
 {
     Soldier s;
-    bool defensive;
-    Vector3 target;
+    bool selected_col, selected_atk, selected_def;
+    List<Vector3> offense;
+    List<Vector3> defense;
+    int dist_col, dist_atk, dist_def;
+    Vector3 dir_col, dir_atk, dir_def;
     public override void Enter(Agent agent){
-        defensive = false;
-        if(s.Role == Soldier.SoliderRole.Defender){defensive=true;}
-        //SoldierManager.ReleaseStrategicPosition(s, agent.transform.position, defensive);
-        target = SoldierManager.RandomStrategicPosition(s, defensive);
+        selected_col = false;
+        selected_atk = false;
+        selected_def = false;
         Debug.Log("Explore Entered");
     }
     public override void Execute(Agent agent){
         Debug.Log("Explore Executed");
         s = agent as Soldier;
-        if(agent.transform.position != target){
-            agent.Navigate(target);
-        }
-        else{
-            agent.SetState<Idle>();
+        switch (s.Role) {
+            case Soldier.SoliderRole.Collector:
+                //collector explore
+                break;
+            case Soldier.SoliderRole.Attacker:
+                if(selected_atk){
+                    dir_atk = agent.transform.position - offense[0];
+                    dist_atk = Mathf.RoundToInt(dir_atk.magnitude);
+                    if(dist_atk > 5){
+                        agent.Navigate(offense[0]);
+                    }
+                    else{
+                        agent.SetState<Idle>();
+                    }
+                }
+                else{
+                    if(s.RedTeam){
+                        offense = agent.SenseAll<RandomOffensivePositionSensor, Vector3>();
+                    }
+                    else if(!s.RedTeam){
+                        offense = agent.SenseAll<RandomOffensivePositionSensor, Vector3>();
+                    }
+                    if(offense.Count <= 0){
+                        agent.SetState<Idle>();
+                    }
+                    selected_atk = true;
+                }
+                break;
+            case Soldier.SoliderRole.Defender:
+                if(selected_def){
+                    dir_def = agent.transform.position - defense[0];
+                    dist_def = Mathf.RoundToInt(dir_def.magnitude);
+                    if(dist_def > 5){
+                        agent.Navigate(defense[0]);
+                    }
+                    else{
+                        agent.SetState<Idle>();
+                    }
+                }
+                else{
+                    if(s.RedTeam){
+                        defense = agent.SenseAll<RandomDefensivePositionSensor, Vector3>();
+                    }
+                    else if(!s.RedTeam){
+                        defense = agent.SenseAll<RandomDefensivePositionSensor, Vector3>();
+                    }
+                    if(defense.Count <= 0){
+                        agent.SetState<Idle>();
+                    }
+                    selected_def = true;
+                }
+                break;
+            default:
+                break;
         }
     }
     public override void Exit(Agent agent){
-        Debug.Log("Explore Exited");}
+        selected_col = false;
+        selected_atk = false;
+        selected_def = false;
+        Debug.Log("Explore Exited");
+    }
 }
 }

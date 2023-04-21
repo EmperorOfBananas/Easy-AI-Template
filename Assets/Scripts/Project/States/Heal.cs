@@ -25,7 +25,9 @@ public class Heal : State
                 target = null;
                 agent.SetState<Idle>();
             }
-            agent.Navigate(target[0].transform.position);
+            else{
+                agent.Navigate(target[0].transform.position);
+            }
         }
         else{
             target = agent.SenseAll<NearestHealthPickupSensor, HealthAmmoPickup>();
