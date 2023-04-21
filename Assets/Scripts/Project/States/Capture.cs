@@ -11,9 +11,10 @@ public class Capture : State
     int dist;
     public override void Enter(Agent agent){
         Debug.Log("Capture Entered");
-        s = agent as Soldier;
     }
     public override void Execute(Agent agent){
+        Debug.Log("Capture Executed");
+        s = agent as Soldier;
         if (!s.CarryingFlag) {
             Debug.Log("Getting flag");
             agent.Navigate(s.EnemyFlagPosition);
@@ -28,6 +29,7 @@ public class Capture : State
             agent.SetState<Idle>();
         }
     }
-    public override void Exit(Agent agent){Debug.Log("Capture Exited");}
+    public override void Exit(Agent agent){
+        Debug.Log("Capture Exited");}
 }
 }

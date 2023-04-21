@@ -13,13 +13,13 @@ public class Heal : State
     List<HealthAmmoPickup> target;
     bool selected;
     public override void Enter(Agent agent){
-        s = agent as Soldier;
         selected = false;
         target = null;
         Debug.Log("Heal Entered");
     }
     public override void Execute(Agent agent){
         Debug.Log("Heal Executed");
+        s = agent as Soldier;
         if(target != null){
             if(!target[0].Ready){
                 target = null;

@@ -13,10 +13,19 @@ namespace Project.States
     [CreateAssetMenu(menuName = "Project/States/Soldier Mind", fileName = "Soldier Mind")]
     public class SoldierMind : State
     {
+        //Soldier s;
         public override void Enter(Agent agent)
         {   
+            //s = agent as Soldier;
             agent.SetState<Idle>();
-            // TODO - Project - Create unique behaviours for your soldiers to play capture the flag.
+        }
+        public override void Execute(Agent agent)
+        {   
+            
+        }
+        public override void Exit(Agent agent)
+        {   
+            
         }
     }
 }

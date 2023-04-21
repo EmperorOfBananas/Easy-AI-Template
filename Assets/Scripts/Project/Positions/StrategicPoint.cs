@@ -17,15 +17,5 @@ namespace Project.Positions
         /// If this position is free to move to.
         /// </summary>
         public bool Open => Count == 0;
-
-        public void Occupy()
-        {
-            Count++;
-        }
-
-        public void Vacate()
-        {
-            Count--;
-        }
     }
 }

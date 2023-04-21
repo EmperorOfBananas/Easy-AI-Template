@@ -10,10 +10,10 @@ public class Retrieve : State
     Soldier s;
     public override void Enter(Agent agent){
         Debug.Log("Retrieve Entered");
-        s = agent as Soldier;
     }
     public override void Execute(Agent agent){
         Debug.Log("Retrieve Executed");
+        s = agent as Soldier;
         while(s.CarryingFlag){
             agent.Navigate(s.BasePosition);
         }

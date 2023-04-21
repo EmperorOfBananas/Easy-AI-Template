@@ -10,7 +10,6 @@ public class Explore : State
     bool defensive;
     Vector3 target;
     public override void Enter(Agent agent){
-        s = agent as Soldier;
         defensive = false;
         if(s.Role == Soldier.SoliderRole.Defender){defensive=true;}
         //SoldierManager.ReleaseStrategicPosition(s, agent.transform.position, defensive);
@@ -19,6 +18,7 @@ public class Explore : State
     }
     public override void Execute(Agent agent){
         Debug.Log("Explore Executed");
+        s = agent as Soldier;
         if(agent.transform.position != target){
             agent.Navigate(target);
         }

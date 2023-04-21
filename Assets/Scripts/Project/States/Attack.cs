@@ -10,10 +10,10 @@ namespace Project.States{
         int dist;
         public override void Enter(Agent agent){
             Debug.Log("Attack Entered");
-            s = agent as Soldier;
         }
         public override void Execute(Agent agent){
             Debug.Log("Attack Executed");
+            s = agent as Soldier;
             if(s.Target != null){
                 agent.Navigate(s.Target.Value.Position);
                 dir = agent.transform.position - s.Target.Value.Position;
