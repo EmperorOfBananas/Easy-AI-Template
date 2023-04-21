@@ -28,6 +28,9 @@ namespace EasyAI.Navigation
             open.Add(start);
             AStarNode curr = start;
             List<Vector3> path = new List<Vector3>();
+            /**
+            *forloop bellow checks if the goal node has neighbours and printes the result.
+            **/
             bool test = false;
             foreach (Connection conn in connections){
                 if(conn.A.Equals(goal)){
@@ -44,6 +47,7 @@ namespace EasyAI.Navigation
                 if(curr.Position == goal){
                     break;
                 }
+                //for each connection where one of the nodes is the current one and the other is not already in the open or closed lists. Add a new AStarNode
                 foreach (Connection conn in connections){
                     if(conn.A.Equals(curr.Position) && !(closed.Any(c => c.Position == conn.B)) && !(open.Any(o => o.Position == conn.B))){
                         open.Add(new AStarNode(conn.B, goal, curr));

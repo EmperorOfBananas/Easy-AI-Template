@@ -10,33 +10,32 @@ namespace Project.States{
 public class Ammo : State
 {
     Soldier s;
-    List<HealthAmmoPickup> target;
-    bool selected;
+    List<HealthAmmoPickup> target;//list of ammo pickups
     public override void Enter(Agent agent){
-        selected = false;
         target = null;
         Debug.Log("Ammo Entered");
     }
     public override void Execute(Agent agent){
         Debug.Log("Ammo Executed");
         s = agent as Soldier;
-        if(target != null){
-            if(!target[0].Ready){
+        if(target != null){//if ammo pickup is selected
+            if(!target[0].Ready){//if ammo not ready
                 target = null;
                 agent.SetState<Idle>();
             }
-            else{
+            else{//otherwise, go to ammo
                 agent.Navigate(target[0].transform.position);
             }
         }
-        else{
+        else{//if ammo pickup not yet selected
             target = agent.SenseAll<NearestAmmoPickupSensor, HealthAmmoPickup>();
-            if(target == null){
+            if(target == null){//no ammo
                 agent.SetState<Idle>();
             }
         }   
     }
     public override void Exit(Agent agent){
+        target = null;
         Debug.Log("Ammo Exited");}
 }
 }

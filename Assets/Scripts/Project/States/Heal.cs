@@ -10,7 +10,7 @@ namespace Project.States{
 public class Heal : State
 {
     Soldier s;
-    List<HealthAmmoPickup> target;
+    List<HealthAmmoPickup> target;//list of health pickups
     bool selected;
     public override void Enter(Agent agent){
         selected = false;
@@ -20,18 +20,18 @@ public class Heal : State
     public override void Execute(Agent agent){
         Debug.Log("Heal Executed");
         s = agent as Soldier;
-        if(target != null){
-            if(!target[0].Ready){
+        if(target != null){//if health pickup not found
+            if(!target[0].Ready){//if pickup not ready
                 target = null;
                 agent.SetState<Idle>();
             }
-            else{
+            else{//otherwise, travel to pickup
                 agent.Navigate(target[0].transform.position);
             }
         }
-        else{
+        else{//find pickup
             target = agent.SenseAll<NearestHealthPickupSensor, HealthAmmoPickup>();
-            if(target.Count == 0){
+            if(target.Count == 0){//no pickup found
                 agent.SetState<Idle>();
             }
         }   
