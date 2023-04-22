@@ -11,7 +11,7 @@ public class Explore : State
     bool selected_col, selected_atk, selected_def;//used to indicate that a target for the exploration, or a partner for the collector has been found
     List<Vector3> offense;//list of offense points
     List<Vector3> defense;//list of defense points
-    //List<Soldier> team;//used to collect data from TeamSensor
+    Soldier partner;//escort of the collector agent
     int dist_col, dist_atk, dist_def;//distance between soldier and their destination
     Vector3 dir_col, dir_atk, dir_def;//direction a soldier is heading in
     public override void Enter(Agent agent){
@@ -26,7 +26,27 @@ public class Explore : State
 
         switch (s.Role) {
             case Soldier.SoliderRole.Collector:
-                agent.SetState<Capture>();//capture enemy flag
+                if(selected_col){
+                    if(partner != null){
+                        dir_col = agent.transform.position - s.EnemyFlagPosition;
+                        dist_col = Mathf.RoundToInt(dir_col.magnitude);
+                        if(partner.Alive && dist_col >= 35){
+                            s.Navigate(partner.transform.position);
+                        }
+                        else if(dist_col < 35){
+                            agent.SetState<Capture>();
+                        }
+                        else if(!partner.Alive){
+                            agent.SetState<Idle>();
+                        }
+                    }
+                }
+                else{
+                    partner = SoldierManager.TeamBlue.OrderBy(b => Vector3.Distance(b.transform.position, s.transform.position)).FirstOrDefault();
+                    if(partner != null){
+                        selected_col = true;
+                    }
+                }
                 break;
             case Soldier.SoliderRole.Attacker:
                 if(selected_atk){//offense point selected

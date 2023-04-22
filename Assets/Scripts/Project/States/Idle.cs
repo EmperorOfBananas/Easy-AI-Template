@@ -32,7 +32,7 @@ public class Idle : State
                 }
                 else if(s.Weapons[0].Ammo < s.Weapons[0].MaxAmmo/2 && !s.CarryingFlag){//if main gun is half empty
                     agent.SetState<Ammo>();}
-                else{
+                else if(dist > 35){
                     agent.SetState<Explore>();
                 }
                 break;
