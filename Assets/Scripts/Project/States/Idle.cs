@@ -32,20 +32,20 @@ public class Idle : State
                 }
                 else if(s.Weapons[0].Ammo < s.Weapons[0].MaxAmmo/2 && !s.CarryingFlag){//if main gun is half empty
                     agent.SetState<Ammo>();}
-                /*else{
+                else{
                     agent.SetState<Explore>();
-                }*/
+                }
                 break;
             case Soldier.SoliderRole.Attacker:
-                if(s.Health <= 50){//if health is below 50
-                    agent.SetState<Heal>();}
-                else if(s.Weapons[0].Ammo < s.Weapons[0].MaxAmmo/2){//if main gun is half empty
+                if(s.Weapons[0].Ammo < s.Weapons[0].MaxAmmo/2){//if main gun is half empty
                     agent.SetState<Ammo>();}
-                else if(s.DetectedEnemies.Count > 0 && s.Health > 50){//if enemies detected, health greater than 50
+                else if(s.DetectedEnemies.Count > 0 && s.Health > 50){//if enemies detected, and health greater than 50
                     Soldier.EnemyMemory target = s.DetectedEnemies.OrderBy(e => e.Visible).ThenBy(e => Vector3.Distance(agent.transform.position, e.Position)).First();
                     s.SetTarget(new(){Enemy = target.Enemy, Position = target.Position, Visible = target.Visible});
                     agent.SetState<Attack>();
                 }
+                else if(s.Health <= 50){//if health is below 50
+                    agent.SetState<Heal>();}
                 else{//go to strategic offensive point
                     s.Cover = false;//leaving protection to find a better place to shoot
                     agent.SetState<Explore>();
@@ -56,7 +56,7 @@ public class Idle : State
                     s.Cover = false;//exit cover
                     agent.SetState<Retrieve>();
                 }
-                else if(s.DetectedEnemies.Count > 0){//if detected enemies is greater than 0
+                else if(s.DetectedEnemies.Count > 0 && s.Health > 30 && s.Weapons[0].Ammo > s.Weapons[0].MaxAmmo/3){//if detected enemies is greater than 0, and health and ammo are at acceptable levels
                     Soldier.EnemyMemory target = s.DetectedEnemies.OrderBy(e => e.Visible).ThenBy(e => Vector3.Distance(agent.transform.position, e.Position)).First();
                     s.SetTarget(new() { Enemy = target.Enemy, Position = target.Position, Visible = target.Visible });
                     agent.SetState<Attack>();

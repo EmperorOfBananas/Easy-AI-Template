@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Project.Pickups;
 using EasyAI;
+using EasyAI.Navigation;
 using System.Linq;
 
 namespace Project.States{
