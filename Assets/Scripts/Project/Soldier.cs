@@ -97,7 +97,7 @@ namespace Project
         public int Health { get; set; }
 
         /// <summary>
-        /// The health of the soldier.
+        /// True if soldier is in cover.
         /// </summary>
         public bool Cover { get; set; }
         
