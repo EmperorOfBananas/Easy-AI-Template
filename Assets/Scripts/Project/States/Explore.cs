@@ -26,25 +26,26 @@ public class Explore : State
 
         switch (s.Role) {
             case Soldier.SoliderRole.Collector:
-                if(selected_col){
+                if(selected_col){//partner chosen
                     if(partner != null){
                         dir_col = agent.transform.position - s.EnemyFlagPosition;
                         dist_col = Mathf.RoundToInt(dir_col.magnitude);
-                        if(partner.Alive && dist_col >= 35){
-                            s.Navigate(partner.transform.position);
+                        if(partner.Alive && dist_col >= 35){//if partner is alive and we are far away from enemy flag
+                            s.Navigate(partner.transform.position);//navigate towards partner
                         }
-                        else if(dist_col < 35){
+                        else if(dist_col < 35){//otherwise, if close to flag, capture
                             agent.SetState<Capture>();
                         }
-                        else if(!partner.Alive){
+                        else if(!partner.Alive){//if partner dead, return to idle
                             agent.SetState<Idle>();
                         }
                     }
                 }
                 else{
+                    //choose closest partner from team
                     partner = SoldierManager.TeamBlue.OrderBy(b => Vector3.Distance(b.transform.position, s.transform.position)).FirstOrDefault();
                     if(partner != null){
-                        selected_col = true;
+                        selected_col = true;//selection made
                     }
                 }
                 break;
