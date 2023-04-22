@@ -16,6 +16,10 @@ public class Retrieve : State
         Debug.Log("Retrieve Executed");
         s = agent as Soldier;
         if(s.CarryingFlag && s.FlagAtBase){//if soldier has enemy flag
+            Soldier.EnemyMemory target = s.DetectedEnemies.OrderBy(e => e.Visible).ThenBy(e => Vector3.Distance(agent.transform.position, e.Position)).FirstOrDefault();
+            if(target != null){
+                s.SetTarget(new(){Enemy = target.Enemy, Position = target.Position, Visible = target.Visible});
+            }
             agent.Navigate(s.BasePosition);//go to base
         }
         else if(!s.FlagAtBase){//if team flag not at base

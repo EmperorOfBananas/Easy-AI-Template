@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using EasyAI;
 using Project.Pickups;
+using System.Linq;
 using UnityEngine;
 namespace Project.States{
 public class Capture : State
@@ -19,6 +20,10 @@ public class Capture : State
             agent.SetState<Idle>();
         }
         if(!s.CarryingFlag) {//if not in possession of flag
+            Soldier.EnemyMemory target = s.DetectedEnemies.OrderBy(e => e.Visible).ThenBy(e => Vector3.Distance(agent.transform.position, e.Position)).FirstOrDefault();
+            if(target != null){
+                s.SetTarget(new(){Enemy = target.Enemy, Position = target.Position, Visible = target.Visible});
+            }
             agent.Navigate(s.EnemyFlagPosition);//go to enemy flag
         }
         else{//if flag captured

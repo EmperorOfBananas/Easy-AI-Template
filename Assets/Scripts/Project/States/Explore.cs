@@ -23,9 +23,10 @@ public class Explore : State
     public override void Execute(Agent agent){
         Debug.Log("Explore Executed");
         s = agent as Soldier;
-        
+
         switch (s.Role) {
-            /*case Soldier.SoliderRole.Collector:
+            case Soldier.SoliderRole.Collector:
+                agent.SetState<Idle>();/*
                 if(selected_col){
                     if(team.Count > 0){
                         if(Vector3.Distance(agent.transform.position, team[0].transform.position) > 5f){
@@ -50,8 +51,8 @@ public class Explore : State
                         agent.SetState<Idle>();
                     }
                     selected_col = true;
-                }
-                break;*/
+                }*/
+                break;
             case Soldier.SoliderRole.Attacker:
                 if(selected_atk){//offense point selected
                     dir_atk = agent.transform.position - offense[0];//direction to point
