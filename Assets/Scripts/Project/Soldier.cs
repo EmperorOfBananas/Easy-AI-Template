@@ -95,6 +95,11 @@ namespace Project
         /// The health of the soldier.
         /// </summary>
         public int Health { get; set; }
+
+        /// <summary>
+        /// The health of the soldier.
+        /// </summary>
+        public bool Cover { get; set; }
         
         /// <summary>
         /// The currently selected weapon of the soldier.

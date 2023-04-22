@@ -20,6 +20,7 @@ public class Capture : State
             agent.SetState<Idle>();
         }
         if(!s.CarryingFlag) {//if not in possession of flag
+            //if there is an enemy nearby, the collector will defend themselves while moving towards their destination
             Soldier.EnemyMemory target = s.DetectedEnemies.OrderBy(e => e.Visible).ThenBy(e => Vector3.Distance(agent.transform.position, e.Position)).FirstOrDefault();
             if(target != null){
                 s.SetTarget(new(){Enemy = target.Enemy, Position = target.Position, Visible = target.Visible});

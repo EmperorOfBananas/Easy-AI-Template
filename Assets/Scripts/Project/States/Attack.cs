@@ -15,7 +15,7 @@ namespace Project.States{
             Debug.Log("Attack Executed");
             s = agent as Soldier;
             if(s.Target != null && s.Target.Value.Visible && s.Target.Value.Enemy.Alive){//if target exists, is alive, and is visible
-                agent.Navigate(s.Target.Value.Position);//move to target
+                //agent.Navigate(s.Target.Value.Position);//move to target
                 dir = agent.transform.position - s.Target.Value.Position;
                 dist = Mathf.RoundToInt(dir.magnitude);
                 //short range

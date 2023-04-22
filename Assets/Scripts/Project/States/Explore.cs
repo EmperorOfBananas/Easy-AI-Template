@@ -85,6 +85,7 @@ public class Explore : State
                         agent.Navigate(defense[0]);
                     }
                     else{
+                        s.Cover = true;//take cover
                         agent.SetState<Idle>();
                     }
                 }

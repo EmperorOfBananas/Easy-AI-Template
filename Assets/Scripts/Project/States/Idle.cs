@@ -52,6 +52,7 @@ public class Idle : State
                 break;
             case Soldier.SoliderRole.Defender:
                 if(!s.FlagAtBase){//if flag is not at base
+                    s.Cover = false;//exit cover
                     agent.SetState<Retrieve>();
                 }
                 else if(s.DetectedEnemies.Count > 0){//if detected enemies is greater than 0
@@ -60,10 +61,12 @@ public class Idle : State
                     agent.SetState<Attack>();
                 }    
                 else if(s.Health <= 30){//health is low
+                    s.Cover = false;//exit cover
                     agent.SetState<Heal>();}
                 else if(s.Weapons[0].Ammo < s.Weapons[0].MaxAmmo/3){//ammo is 2/3s out
+                    s.Cover = false;//exit cover
                     agent.SetState<Ammo>();}
-                else{//search for strategic defensive point
+                else if(!s.Cover){//search for strategic defensive point to take cover
                     agent.SetState<Explore>();
                 }
                 break;
