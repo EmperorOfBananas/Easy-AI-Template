@@ -47,6 +47,7 @@ public class Idle : State
                     agent.SetState<Attack>();
                 }
                 else{//go to strategic offensive point
+                    s.Cover = false;//leaving protection to find a better place to shoot
                     agent.SetState<Explore>();
                 }
                 break;
